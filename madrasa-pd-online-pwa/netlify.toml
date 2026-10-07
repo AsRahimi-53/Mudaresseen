@@ -1,0 +1,26 @@
+# The site's base directory is `madrasa-pd-online-pwa`, but the app itself
+# (package.json, index.html, functions) lives in the `project/` subfolder.
+# Paths below are relative to this base directory.
+[build]
+  command = "npm --prefix project ci && npm --prefix project run build"
+  publish = "project"
+  functions = "project/netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
