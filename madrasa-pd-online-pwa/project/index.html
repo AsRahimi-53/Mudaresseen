@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ps" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="Madrasa Teachers Professional Development – Scientific Members Management System">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="علمي غړي">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <title>د مدرسو د ښوونکو د مسلکي پرمختګ سیستم</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/theme-dark.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/tables.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+  <div id="app-loading" class="loading-screen">
+    <div class="spinner"></div>
+    <p>سیستم چمتو کېږي…</p>
+  </div>
+
+  <div id="setup-overlay" class="overlay hidden">
+    <div class="setup-card">
+      <div class="setup-mark">✦</div>
+      <p class="eyebrow">MADRASA PROFESSIONAL DEVELOPMENT</p>
+      <h1 data-i18n="setupTitle">د لومړني تنظیم لارښود</h1>
+      <p class="muted" data-i18n="setupIntro">د دې نصب لپاره عمومي معلومات یو ځل ولیکئ. ټول معلومات یوازې په همدې وسیله کې خوندي کېږي.</p>
+      <form id="setup-form" class="form-grid two-col">
+        <label><span data-i18n="provinceName">د ولایت نوم</span><input name="province" required autofocus></label>
+        <label><span data-i18n="districtName">د ولسوالۍ نوم</span><input name="district" required></label>
+        <label><span data-i18n="departmentName">ریاست / اداره</span><input name="department"></label>
+        <label><span data-i18n="sectionName">څانګه</span><input name="section"></label>
+        <label><span data-i18n="academicYear">تعلیمي کال</span><input name="academicYear" placeholder="۱۴۰۵" required></label>
+        <label><span data-i18n="officePhone">د دفتر ټیلیفون</span><input name="officePhone" type="tel"></label>
+        <label class="span-2"><span data-i18n="officeAddress">د دفتر پته</span><input name="officeAddress"></label>
+        <label class="span-2"><span data-i18n="otherInfo">نور معلومات</span><textarea name="otherInfo" rows="2"></textarea></label>
+        <div class="span-2 setup-note"><span class="icon">🔒</span><span data-i18n="offlineNote">دا سیستم بشپړ آفلاین دی؛ ستاسو معلومات له وسیلې څخه نه وځي.</span></div>
+        <button class="btn primary span-2" type="submit"><span>✓</span><span data-i18n="startSystem">سیستم پیل کړئ</span></button>
+      </form>
+      <div class="setup-language"><button class="link-btn" type="button" data-action="toggle-language">دری / پښتو</button></div>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo" id="brand-logo">✦</div>
+        <div class="brand-copy">
+          <strong data-i18n="appShortName">د علمي غړو سیستم</strong>
+          <small data-i18n="appSubtitle">د مدرسو مسلکي پرمختګ</small>
+        </div>
+      </div>
+      <div class="district-chip"><span class="status-dot"></span><span id="district-label">—</span></div>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <div class="nav-section-label" data-i18n="workspace">کاري ساحه</div>
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">⌂</span><span data-i18n="dashboard">ډشبورډ</span></button>
+        <button class="nav-link" data-view="team-dashboard"><span class="nav-icon">◈</span><span data-i18n="teamDashboard">د ټیم ډشبورډ</span></button>
+        <button class="nav-link" data-view="members"><span class="nav-icon">♟</span><span data-i18n="members">علمي غړي</span></button>
+        <button class="nav-link" data-view="madrasas"><span class="nav-icon">▦</span><span data-i18n="madrasas">مدرسې</span></button>
+        <button class="nav-link" data-view="teachers"><span class="nav-icon">♙</span><span data-i18n="teachers">ښوونکي</span></button>
+        <button class="nav-link" data-view="staff"><span class="nav-icon">♟</span><span data-i18n="staff">کارکوونکي</span></button>
+        <button class="nav-link" data-view="statistics"><span class="nav-icon">◫</span><span data-i18n="statistics">احصائیه</span></button>
+        <button class="nav-link" data-view="tashkil"><span class="nav-icon">⊞</span><span data-i18n="tashkil">تشکیل</span></button>
+        <div class="nav-section-label" data-i18n="programs">پروګرامونه</div>
+        <button class="nav-link" data-view="observations"><span class="nav-icon">◉</span><span data-i18n="observations">د تدریس مشاهده</span></button>
+        <button class="nav-link" data-view="annual-plans"><span class="nav-icon">◷</span><span data-i18n="annualPlan">کلنی پلان</span></button>
+        <button class="nav-link" data-view="monthly-plans"><span class="nav-icon">◴</span><span data-i18n="monthlyPlan">میاشتنی پلان</span></button>
+        <button class="nav-link" data-view="duties"><span class="nav-icon">✓</span><span data-i18n="duties">دندې</span></button>
+        <button class="nav-link" data-view="activities"><span class="nav-icon">✦</span><span data-i18n="activities">فعالیتونه</span></button>
+        <button class="nav-link" data-view="professional-development"><span class="nav-icon">▤</span><span data-i18n="professionalDevelopment">مسلکي پرمختګ</span></button>
+        <button class="nav-link" data-view="monitoring"><span class="nav-icon">⌖</span><span data-i18n="monitoring">نظارت</span></button>
+        <div class="nav-section-label" data-i18n="analysis">تحلیل او راپور</div>
+        <button class="nav-link" data-view="reports"><span class="nav-icon">▤</span><span data-i18n="reports">راپورونه</span></button>
+        <button class="nav-link" data-view="backup"><span class="nav-icon">⇅</span><span data-i18n="backupRestore">احتیاطي کاپي</span></button>
+        <button class="nav-link" data-view="settings"><span class="nav-icon">⚙</span><span data-i18n="settings">تنظیمات</span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <span data-i18n="offline">آفلاین</span><span class="offline-pulse"></span><span id="online-status" class="sidebar-online-status">آفلاین</span>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button class="icon-btn mobile-menu" id="mobile-menu" type="button" aria-label="Menu" data-i18n-title="collapseMenu" title="Menu">☰</button>
+          <button class="back-btn" id="back-btn" type="button" title="Back"><span>→</span><span data-i18n="back">شاته</span></button>
+          <div class="breadcrumbs" id="breadcrumbs"></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="global-search-wrap"><div class="global-search"><span>⌕</span><input id="global-search" type="search" data-i18n-placeholder="globalSearch" placeholder="په سیستم کې لټون…"><kbd>⌘ K</kbd></div><div id="global-search-results" class="global-search-results hidden" role="listbox"></div></div>
+          <button class="icon-btn" id="language-toggle" type="button" title="Language">دری</button>
+          <button class="icon-btn" id="quick-backup" type="button" title="Backup">⇩</button>
+          <div class="account-wrap"><button class="user-pill" id="account-toggle" type="button" aria-haspopup="true" aria-expanded="false" title="Account"><span class="avatar">A</span><span id="operator-label" data-i18n="administrator">اداري مدیر</span><span class="account-chevron">⌄</span></button><div id="account-menu" class="account-menu hidden" role="menu"></div></div>
+        </div>
+      </header>
+      <section class="content-wrap">
+        <div id="view-root" class="view-root"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal-root" class="modal-layer hidden" role="dialog" aria-modal="true"></div>
+  <div id="toast-root" class="toast-stack" aria-live="polite"></div>
+  <div id="print-root" class="print-root"></div>
+  <div id="confirm-root" class="confirm-layer hidden"></div>
+
+  <noscript><div class="noscript">د دې سیستم د کارولو لپاره JavaScript فعال کړئ.</div></noscript>
+  <!-- The bundle keeps the application runnable when index.html is opened directly from an extracted folder. The modular sources remain in js/ for maintenance and future packaging. -->
+  <script src="js/runtime-config.js"></script>
+  <script src="js/app.bundle.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(error => console.warn('PWA shell registration failed', error)));
+    }
+  </script>
+</body>
+</html>
