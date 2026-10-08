@@ -1,5 +1,5 @@
 /* Madrasa PWA shell cache. Supabase and API traffic deliberately bypasses this worker. */
-const CACHE_NAME = 'madrasa-pd-shell-v1';
+const CACHE_NAME = 'madrasa-pd-shell-v2';
 const SHELL = [
   './',
   './index.html',
