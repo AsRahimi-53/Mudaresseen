@@ -2,7 +2,7 @@
 <html lang="ps" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0f766e">
   <meta name="description" content="Madrasa Teachers Professional Development – Scientific Members Management System">
   <meta name="mobile-web-app-capable" content="yes">
@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/tables.css">
   <link rel="stylesheet" href="css/rtl.css">
   <link rel="stylesheet" href="css/print.css">
+  <link rel="stylesheet" href="css/mobile.css" media="screen">
 </head>
 <body>
   <div id="app-loading" class="loading-screen">
@@ -115,6 +116,7 @@
   <!-- The bundle keeps the application runnable when index.html is opened directly from an extracted folder. The modular sources remain in js/ for maintenance and future packaging. -->
   <script src="js/runtime-config.js"></script>
   <script src="js/app.bundle.js"></script>
+  <script src="js/mobile.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(error => console.warn('PWA shell registration failed', error)));
