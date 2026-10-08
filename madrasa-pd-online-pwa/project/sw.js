@@ -1,11 +1,12 @@
 /* Madrasa PWA shell cache. Supabase and API traffic deliberately bypasses this worker. */
-const CACHE_NAME = 'madrasa-pd-shell-v2';
+const CACHE_NAME = 'madrasa-pd-shell-v4';
 const SHELL = [
   './',
   './index.html',
   './manifest.webmanifest',
   './js/runtime-config.js',
   './js/app.bundle.js',
+  './js/mobile.js',
   './css/style.css',
   './css/theme-dark.css',
   './css/dashboard.css',
@@ -13,6 +14,7 @@ const SHELL = [
   './css/tables.css',
   './css/rtl.css',
   './css/print.css',
+  './css/mobile.css',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png'
 ];
