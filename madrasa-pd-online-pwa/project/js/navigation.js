@@ -1,5 +1,0 @@
-import { t } from './translations.js';
-export const routeLabels = { dashboard: 'dashboard', 'team-dashboard': 'teamDashboard', members: 'members', madrasas: 'madrasas', teachers: 'teachers', staff: 'staff', statistics: 'statistics', tashkil: 'tashkil', observations: 'observations', 'annual-plans': 'annualPlan', 'monthly-plans': 'monthlyPlan', duties: 'duties', activities: 'activities', 'professional-development': 'professionalDevelopment', monitoring: 'monitoring', reports: 'reports', backup: 'backupRestore', settings: 'settings' };
-export function routeLabel(route) { return t(routeLabels[route] || route, route); }
-export function setActiveNav(route) { document.querySelectorAll('.nav-link[data-view]').forEach(link => link.classList.toggle('active', link.dataset.view === route)); }
-export function breadcrumbs(route, params = {}) { const label = routeLabel(route); return `<span>${t('appShortName')}</span><span>›</span><strong>${label}</strong>${params.label ? `<span>›</span><strong>${params.label}</strong>` : ''}`; }
