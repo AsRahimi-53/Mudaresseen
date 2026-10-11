@@ -1,0 +1,5 @@
+import { db } from './database.js';
+import { t } from './translations.js';
+import { esc, formatDate, percent, printTable } from './utils.js';
+export async function teacherHistory(teacherId) { const rows = (await db.getAll('observations')).filter(o => o.teacherId === teacherId).sort((a,b)=>Number(a.observationNumber)-Number(b.observationNumber)); return rows; }
+export async function observationReport(ctx, filters = {}) { const rows = (await db.getAll('observations')).filter(row => (!filters.member || row.observerId === filters.member) && (!filters.madrasa || row.madrasaId === filters.madrasa) && (!filters.quality || row.qualityKey === filters.quality)); const body = `<div class="print-section"><h3>${esc(t('observationHistory'))}</h3>${printTable([t('teacher'),t('observationNumber'),t('observationDate'),t('observer'),t('percentage'),t('qualityLevel'),t('weaknesses'),t('recommendations')],rows.map(o=>[o.teacherName, o.observationNumber, formatDate(o.observationDate), o.observerName, percent(o.percentage), o.qualityLevel, o.weaknesses || '—', o.recommendationsGiven || '—']))}</div>`; return ctx.printOfficial(t('reportObservation'), body); }
