@@ -1,0 +1,28 @@
+{
+  "name": "د علمي غړو سیستم",
+  "short_name": "علمي غړي",
+  "description": "د مدرسو د علمي غړو د مسلکي پرمختګ او ګډو معلوماتو سیستم",
+  "lang": "ps-AF",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0f766e",
+  "background_color": "#f4f8f7",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
