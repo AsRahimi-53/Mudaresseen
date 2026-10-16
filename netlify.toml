@@ -1,6 +1,6 @@
 [build]
   publish = "."
-  command = "if [ -f scripts/generate-runtime-config.mjs ]; then node scripts/generate-runtime-config.mjs; fi"
+  command = "npm run build && if [ -f scripts/generate-runtime-config.mjs ]; then node scripts/generate-runtime-config.mjs; fi" 
   functions = "netlify/functions"
 
 [functions]
